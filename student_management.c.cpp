@@ -29,7 +29,12 @@ int main() {
         printf("5) Delete Student Information\n");
         printf("6) Exit!\n");
         printf("Enter your choice: ");
-        scanf("%d", &choice);
+        if (scanf("%d", &choice) != 1) {
+        while (getchar() != '\n');  
+        printf("Invalid input: please try again!\n");
+        continue;
+}
+
 
         switch(choice) {
             case 1: addStudent();
@@ -234,4 +239,5 @@ void deleteStudent() {
     remove("student.txt");
     rename("temp.txt", "student.txt");
 }
+
 
